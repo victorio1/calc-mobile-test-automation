@@ -42,6 +42,7 @@ public class TestRunner {
         driver = new AndroidDriver<>(new URL(url), capabilities);
         AndroidDriverManager.setDriver(driver);
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+        System.setProperty("webdriver.http.factory", "apache");
     }
 
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")

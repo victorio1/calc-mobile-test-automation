@@ -8,7 +8,7 @@
     <parameter name="automationName" value="UiAutomator2" />
     <parameter name="appPackage" value="com.android.calculator2" />
     <parameter name="appActivity" value="com.android.calculator2.Calculator" />
-    <parameter name="url" value="http://127.0.1.1:4723/wd/hub" />
+    <parameter name="url" value="http://127.0.0.1:4723/wd/hub" />
 
     <test name="tasha">
         <classes>

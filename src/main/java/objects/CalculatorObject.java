@@ -26,7 +26,7 @@ public class CalculatorObject {
 
 
     // I create my locator number 1
-    @AndroidFindBy(id="com.android.calculator2:id/digit_1")
+    @AndroidFindBy(id="digit_1")
     private AndroidElement number1;
 
     public void touchNumber1(){
