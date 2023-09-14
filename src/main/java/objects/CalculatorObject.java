@@ -29,8 +29,59 @@ public class CalculatorObject {
     @AndroidFindBy(id="digit_1")
     private AndroidElement number1;
 
-    public void touchNumber1(){
+    @AndroidFindBy(id="digit_3")
+    private AndroidElement number3;
+
+    // Colocamos locators de operaciones
+    @AndroidFindBy(id = "op_add")
+    private AndroidElement btnMas;
+
+    @AndroidFindBy(id = "op_sub")
+    private AndroidElement btnMenos;
+
+    @AndroidFindBy(id = "op_mul")
+    private AndroidElement btnPor;
+
+    @AndroidFindBy(id = "op_div")
+    private AndroidElement btnEntre;
+
+    @AndroidFindBy(id = "eq")
+    private AndroidElement btnIgual;
+
+    @AndroidFindBy(id = "result")
+    private AndroidElement lblResult;
+
+    public void touchNumberOne(){
         wait.until(ExpectedConditions.visibilityOf(number1)).click();
+    }
+
+    public void touchNumberThree(){
+        wait.until(ExpectedConditions.visibilityOf(number3)).click();
+    }
+
+    public void touchOperation(String operation){
+        switch (operation) {
+            case "addition":
+                wait.until(ExpectedConditions.visibilityOf(btnMas)).click();
+                break;
+            case "multiplication":
+                wait.until(ExpectedConditions.visibilityOf(btnPor)).click();
+                break;
+            case "subtraction":
+            wait.until(ExpectedConditions.visibilityOf(btnMenos)).click();
+                break;
+            case "division":
+                wait.until(ExpectedConditions.visibilityOf(btnEntre)).click();
+                break;
+        }
+    }
+
+    public void touchIgual(){
+        wait.until(ExpectedConditions.visibilityOf(btnIgual)).click();
+    }
+
+    public String getResultado(){
+        return wait.until(ExpectedConditions.visibilityOf(lblResult)).getText();
     }
 
 }

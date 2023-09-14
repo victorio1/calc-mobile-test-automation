@@ -9,12 +9,13 @@ import driver.AndroidDriverManager;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import objects.CalculatorObject;
+import org.springframework.util.Assert;
 
 public class CalculatorSteps {
 
     private AndroidDriver<AndroidElement> driver;
 
-    private String numero1;
+    private String operador1, operador2;
 
     private CalculatorObject calculatorObject;
 
@@ -23,24 +24,31 @@ public class CalculatorSteps {
         driver = AndroidDriverManager.getDriver();
     }
 
-    @Given("el usuario tiene \"([^\"]*)\" numero and \"([^\"]*)\"")
-    public void tashaHasTwoNumbers(String number1, String number2) throws Exception{
-            calculatorObject = new CalculatorObject(driver);
-            calculatorObject.touchNumber1();
-        System.out.printf(number1);
-        System.out.println(number2);
-            Thread.sleep(10000);
+    @Given("usuario tiene \"([^\"]*)\" numero y el numero \"([^\"]*)\"")
+    public void tashaHasTwoNumbers(String numero1, String numero2) throws Exception{
+            operador1 = numero1;
+            operador2 = numero2;
     }
 
-    @When("el usuario realiza la operacion de \"([^\"]*)\"")
+    @When("usuario realiza la operacion de \"([^\"]*)\"")
     public void tashaMakesAnOperation(String operation){
+            calculatorObject = new CalculatorObject(driver);
+            calculatorObject.touchNumberOne();
+            calculatorObject.touchOperation(operation);
+            calculatorObject.touchNumberThree();
+            calculatorObject.touchIgual();
 
     }
 
-    @Then("el resultado de la operacion sera \"([^\"]*)\"")
-    public void tashaVerifyTheResult(Integer result){
-
+    @Then("resultado de la operacion sera \"([^\"]*)\"")
+    public void tashaVerifyTheResult(String result){
+       if (calculatorObject.getResultado().contains(result)){
+           System.out.println("PINTAREMOS LA CASA DE LA BEBA");
+       }else {
+           System.out.println("NO HAY CHCOLATADA");
+       }
     }
+
 
     @After
     public void tearDown() {
