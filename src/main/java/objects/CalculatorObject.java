@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -57,6 +58,10 @@ public class CalculatorObject {
 
     public void touchNumberThree(){
         wait.until(ExpectedConditions.visibilityOf(number3)).click();
+    }
+
+    public void touchDigit(String digit){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("digit_" + digit))).click();
     }
 
     public void touchOperation(String operation){

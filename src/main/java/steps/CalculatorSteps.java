@@ -9,7 +9,6 @@ import driver.AndroidDriverManager;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import objects.CalculatorObject;
-import org.springframework.util.Assert;
 
 public class CalculatorSteps {
 
@@ -33,9 +32,9 @@ public class CalculatorSteps {
     @When("usuario realiza la operacion de \"([^\"]*)\"")
     public void tashaMakesAnOperation(String operation){
             calculatorObject = new CalculatorObject(driver);
-            calculatorObject.touchNumberOne();
+            calculatorObject.touchDigit(operador1);
             calculatorObject.touchOperation(operation);
-            calculatorObject.touchNumberThree();
+            calculatorObject.touchDigit(operador2);
             calculatorObject.touchIgual();
 
     }
@@ -43,9 +42,9 @@ public class CalculatorSteps {
     @Then("resultado de la operacion sera \"([^\"]*)\"")
     public void tashaVerifyTheResult(String result){
        if (calculatorObject.getResultado().contains(result)){
-           System.out.println("PINTAREMOS LA CASA DE LA BEBA");
+           System.out.println("El resultado matematico fue exitoso");
        }else {
-           System.out.println("NO HAY CHCOLATADA");
+           System.out.println("El resultado matematico no fue exitoso");
        }
     }
 
