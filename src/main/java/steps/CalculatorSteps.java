@@ -9,7 +9,8 @@ import driver.AndroidDriverManager;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import objects.CalculatorObject;
-
+import org.springframework.util.Assert;
+import static org.testng.Assert.assertEquals;
 public class CalculatorSteps {
 
     private AndroidDriver<AndroidElement> driver;
@@ -41,11 +42,10 @@ public class CalculatorSteps {
 
     @Then("resultado de la operacion sera \"([^\"]*)\"")
     public void tashaVerifyTheResult(String result){
-       if (calculatorObject.getResultado().contains(result)){
-           System.out.println("El resultado matematico fue exitoso");
-       }else {
-           System.out.println("El resultado matematico no fue exitoso");
-       }
+        System.out.println(calculatorObject.getResultado());
+        String valueObtained = calculatorObject.getResultado();
+        Assert.hasText(result,valueObtained);
+        assertEquals(result,valueObtained,"Test Fallido");
     }
 
 

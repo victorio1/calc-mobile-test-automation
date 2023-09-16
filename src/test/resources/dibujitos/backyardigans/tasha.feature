@@ -1,6 +1,6 @@
 @SmokeTest
 @COM-2237
-@Suma
+@Resta
 Feature: Suma de una calculadora
   # En este feature nosotros vamos a agregar
   # una funcionalidad que la calculadora realiza

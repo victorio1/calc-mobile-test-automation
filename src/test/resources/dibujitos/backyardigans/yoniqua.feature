@@ -1,6 +1,6 @@
 @EndToEnd
 @COM-8756
-@Resta
+@Suma
   Feature: Resta en una calculadora
     # En este feature nosotros vamos a agregar
     # una funcionalidad que la calculadora realiza
