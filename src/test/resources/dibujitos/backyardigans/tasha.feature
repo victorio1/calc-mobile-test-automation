@@ -1,6 +1,7 @@
 @SmokeTest
 @COM-2237
 @Resta
+@Matematicas
 Feature: Suma de una calculadora
   # En este feature nosotros vamos a agregar
   # una funcionalidad que la calculadora realiza
