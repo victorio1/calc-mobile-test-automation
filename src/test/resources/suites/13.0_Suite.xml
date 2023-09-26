@@ -10,7 +10,7 @@
     <parameter name="appActivity" value="com.sec.android.app.popupcalculator.Calculator" />
     <parameter name="url" value="http://127.0.0.1:4723/wd/hub" />
 
-    <test name="tasha">
+    <test name="yostin">
         <classes>
             <class name="runners.TestRunner" />
         </classes>

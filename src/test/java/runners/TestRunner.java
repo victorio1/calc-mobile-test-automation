@@ -14,7 +14,7 @@ import java.net.URL;
 @CucumberOptions(
         features = "src/test/resources/dibujitos",
         glue = {"steps"},
-        tags = {"@Matematicas"},
+        tags = {"@SamsungS23"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
