@@ -1,7 +1,7 @@
-@SmokeTest
-@Disney
+@SmokeTestEmulator
 @Multiplicacion
-@Matematicas
+@emulator
+@stich
 Feature: Multiplicacion de una calculadora
   # En este feature nosotros vamos a agregar
   # una funcionalidad que la calculadora realiza

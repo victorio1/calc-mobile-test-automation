@@ -24,7 +24,7 @@ public class SamsungCalculatorSteps {
         driver = AndroidDriverManager.getDriver();
     }
 
-    @Given("yo quiero sumar \"([^\"]*)\" con el numero \"([^\"]*)\"")
+    @Given("yo quiero operar \"([^\"]*)\" con el numero \"([^\"]*)\"")
     public void iHaveTwoNumbers(String numero1, String numero2) throws Exception{
         operador1 = numero1;
         operador2 = numero2;
@@ -33,9 +33,9 @@ public class SamsungCalculatorSteps {
     @When("realizo la operacion de \"([^\"]*)\"")
     public void iTryToMakeAnOperation(String operation){
          samsungCalculator = new SamsungCalculator(driver);
-         samsungCalculator.touchSamsungDigit(operador1);
+         samsungCalculator.touchSamsungDigits(operador1);
          samsungCalculator.touchSamsungOperation(operation);
-         samsungCalculator.touchSamsungDigit(operador2);
+         samsungCalculator.touchSamsungDigits(operador2);
          samsungCalculator.touchSamsungIgual();
     }
 
@@ -44,8 +44,15 @@ public class SamsungCalculatorSteps {
         System.out.println(samsungCalculator.getSamsungResultado());
         String valueObtained = samsungCalculator.getSamsungResultado();
         String valueObtainedSucessfully = valueObtained.replace(" Calculation result","");
-        Assert.hasText(result,valueObtainedSucessfully);
-        assertEquals(result,valueObtainedSucessfully,"Test Fallido");
+        if (valueObtainedSucessfully.contains(",")){
+            String digitWithoutComa = valueObtainedSucessfully.replace(",","");
+            Assert.hasText(result,digitWithoutComa);
+            assertEquals(result,digitWithoutComa,"Test Fallido");
+        } else {
+            Assert.hasText(result,valueObtainedSucessfully);
+            assertEquals(result,valueObtainedSucessfully,"Test Fallido");
+        }
+
     }
 
 

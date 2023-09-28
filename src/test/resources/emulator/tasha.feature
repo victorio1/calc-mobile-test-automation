@@ -1,8 +1,7 @@
-@SmokeTest
-@COM-2237
-@Resta
-@Matematicas
-@SamsungS23
+@SmokeTestEmulator
+@Suma
+@emulator
+@tasha
 Feature: Suma de una calculadora
   # En este feature nosotros vamos a agregar
   # una funcionalidad que la calculadora realiza
@@ -10,6 +9,6 @@ Feature: Suma de una calculadora
   # un resultado de incremento
 
   Scenario: Verificar Suma Numerica Exitosa
-    Given yo quiero sumar "9" con el numero "8"
-    When realizo la operacion de "addition"
-    Then finalmente como resultado tendre "17"
+    Given usuario tiene "8" numero y el numero "3"
+    When usuario realiza la operacion de "subtraction"
+    Then resultado de la operacion sera "4"

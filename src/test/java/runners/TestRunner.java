@@ -12,7 +12,7 @@ import org.testng.annotations.*;
 import java.net.URL;
 
 @CucumberOptions(
-        features = "src/test/resources/dibujitos",
+        features = "src/test/resources",
         glue = {"steps"},
         tags = {"@SamsungS23"},
         format = {

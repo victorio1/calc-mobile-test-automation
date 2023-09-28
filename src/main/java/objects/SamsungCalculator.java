@@ -41,8 +41,22 @@ public class SamsungCalculator {
     @AndroidFindBy(id = "calc_edt_formula")
     private AndroidElement lblResult;
 
-    public void touchSamsungDigit(String digit){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + digit))).click();
+    public void touchSamsungDigits(String digit){
+        if (digit.length() == 2){
+            String firstDigit = digit.substring(0,1);
+            String secondDigit = digit.substring(1);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + firstDigit))).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + secondDigit))).click();
+        } else if (digit.length() == 3) {
+            String firstDigit = digit.substring(0,1);
+            String secondDigit = digit.substring(1,2);
+            String thirdDigit = digit.substring(2);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + firstDigit))).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + secondDigit))).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + thirdDigit))).click();
+        } else {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("calc_keypad_btn_0" + digit))).click();
+        }
     }
 
     public void touchSamsungOperation(String operation){
